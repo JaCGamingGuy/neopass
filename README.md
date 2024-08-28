@@ -1,5 +1,6 @@
 # Neo Password Manager
 (only for Debian based systems)
+
 NeoPass uses AES-128-CBC for encryption and HMAC-SHA256 for authentication.
 
 ## Installation Instructions
