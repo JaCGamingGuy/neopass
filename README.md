@@ -5,24 +5,24 @@
 
 1.  **Clone the Repository**
 
-        `git clone https://github.com/JaCGamingGuy/neopass.git`
+        git clone https://github.com/JaCGamingGuy/neopass.git
 
 2.  **Navigate to the Cloned Folder**
 
-        `cd neopass`
+        cd neopass
 
 3.  **Install Required Packages**
 
-        `sudo pip install -r requirements.txt`
+        sudo pip install -r requirements.txt
 
 4.  **Make the Installation Script Executable**
 
-        `chmod +x install.sh`
+        chmod +x install.sh
 
 5.  **Run the Installation Script**
 
-        `sudo bash ./install.sh`
+        sudo bash ./install.sh
 
 6.  **Run the Program**
 
-        `neop`
+        neop
