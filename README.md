@@ -10,19 +10,24 @@
 ## Preview
 
 **Main Menu**
-        ![main](https://github.com/user-attachments/assets/0b50f109-a1c4-4417-92c7-86d0df034bc2)
+
+![main_2_optimized](https://github.com/user-attachments/assets/b352a37d-f21b-4a3b-8638-7fabc4350fa4)
 
 **Generation**
-        ![option1](https://github.com/user-attachments/assets/a1a926ae-a487-4537-8f3e-11e85399ed4a)
+
+![option1_optimized](https://github.com/user-attachments/assets/c285e1c6-b5e7-4a0c-a048-f37201697846)
 
 **List**
-        ![option2](https://github.com/user-attachments/assets/020b49c9-8986-4695-b855-4efb370e3c38)
+
+![option2_optimized](https://github.com/user-attachments/assets/f5d4690c-5522-4d33-aff1-33675d430cef)
 
 **Removal**
-        ![option3](https://github.com/user-attachments/assets/c55c8a12-c903-491c-84df-1f31a3a138cf)
+
+![option3_optimized](https://github.com/user-attachments/assets/6cbcbd7e-d809-4dc1-8e1f-ee8ad8e9fc10)
 
 **Bulk-Removal**
-        ![option4](https://github.com/user-attachments/assets/176460d9-725d-4722-bb03-d6f714c2bd93)
+
+![option4_optimized](https://github.com/user-attachments/assets/19fe35da-89a2-4f79-abb4-300d4e6d0f93)
 
 
 ## Installation Instructions
