@@ -1,7 +1,11 @@
 # Neo Password Manager
 (only for Debian based systems)
 
-NeoPass uses AES-128-CBC for encryption and HMAC-SHA256 for authentication.
+-A simple to use CLI based password generator and manager.
+
+-Easily generate, view and delete strong passwords that are stored LOCALLY.
+
+-NeoPass uses AES-128-CBC for encryption and HMAC-SHA256 for authentication.
 
 ## Installation Instructions
 
@@ -32,3 +36,11 @@ NeoPass uses AES-128-CBC for encryption and HMAC-SHA256 for authentication.
 6.  **Run the Program**
 
         neop
+
+## Uninstall Instructions
+
+        cd /usr/local/bin/
+        rm -R neopass
+        rm neop
+
+***Enjoy***
