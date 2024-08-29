@@ -12,6 +12,7 @@ from cryptography.fernet import Fernet
 script_dir = os.path.dirname(os.path.abspath(__file__))
 repo_path = '/usr/local/bin/neopass'
 update_dir = os.path.join(script_dir, 'neopass_update')
+temp_extract_dir = os.path.join(update_dir, 'extracted_repo')
 github_repo_url = 'https://github.com/JaCGamingGuy/neopass/archive/refs/heads/main.zip'
 credentials_file = os.path.join(script_dir, 'github_credentials.json')
 key_file = os.path.join(script_dir, 'encryption_key.key')
@@ -87,40 +88,33 @@ def download_and_replace_repo():
         response = requests.get(github_repo_url, auth=(username, token))
         response.raise_for_status()  # Raises HTTPError for bad responses
         if response.status_code == 200:
-            # Create/update the update directory
+            # Create/update the update and temp extraction directories
             if not os.path.exists(update_dir):
                 os.makedirs(update_dir)
+            if not os.path.exists(temp_extract_dir):
+                os.makedirs(temp_extract_dir)
 
             with ZipFile(BytesIO(response.content)) as zip_file:
-                zip_file.extractall(update_dir)
+                zip_file.extractall(temp_extract_dir)
 
-            # Determine the extracted repo path
-            extracted_repo_path = os.path.join(update_dir, 'neopass-main')
+            extracted_repo_path = os.path.join(temp_extract_dir, 'neopass-main')
 
             if not os.path.exists(extracted_repo_path):
                 print(f"Extracted repository path {extracted_repo_path} does not exist.")
                 return
 
-            # List of files/directories to exclude from deletion
-            exclude_items = {credentials_file, key_file}
-            
-            # Replace files and directories
-            for item in os.listdir(extracted_repo_path):
-                s = os.path.join(extracted_repo_path, item)
-                d = os.path.join(repo_path, item)
-                
-                # Skip excluded items
-                if os.path.basename(d) in exclude_items:
-                    continue
+            # Replace only the files matching the ones in the extracted repository
+            for root, dirs, files in os.walk(extracted_repo_path):
+                for file in files:
+                    file_path = os.path.join(root, file)
+                    relative_path = os.path.relpath(file_path, extracted_repo_path)
+                    dest_path = os.path.join(repo_path, relative_path)
 
-                if os.path.isdir(s):
-                    if os.path.exists(d):
-                        shutil.rmtree(d)
-                    shutil.copytree(s, d)
-                else:
-                    if os.path.exists(d):
-                        os.remove(d)
-                    shutil.copy2(s, d)
+                    # Ensure the directory exists in the destination
+                    os.makedirs(os.path.dirname(dest_path), exist_ok=True)
+                    
+                    # Replace file
+                    shutil.copy2(file_path, dest_path)
 
             print("Repository updated successfully.")
         else:
