@@ -242,7 +242,6 @@ def password_manager_menu():
 
         elif option == '7':
             clear_screen()  # Clear the screen before exiting
-            console.print("[bold cyan]Exiting Password Manager...[/bold cyan]")
             break
 
 if __name__ == "__main__":
