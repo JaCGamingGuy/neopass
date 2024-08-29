@@ -1,6 +1,5 @@
 {
     "developer": "Carl Bouley",
-    "version": "1.5",
-    "description": "A secure password generation and storage tool. Developed using localized LLM."
+    "version": "1.6",
+    "description": "Neo's Password Manager is a secure and user-friendly console application designed for managing your passwords with ease and confidentiality. This tool offers a streamlined interface for generating, storing, and managing your credentials safely."
 }
-
