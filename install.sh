@@ -13,7 +13,7 @@ TARGET_DIR="/usr/local/bin/neopass"
 mkdir -p "$TARGET_DIR"
 
 # Move the files into the target directory
-cp password_manager.py requirements.txt info.json "$TARGET_DIR"
+cp password_manager.py requirements.txt info.json updater.py "$TARGET_DIR"
 
 # Install required Python packages
 pip3 install -r "$TARGET_DIR/requirements.txt"
@@ -21,7 +21,7 @@ pip3 install -r "$TARGET_DIR/requirements.txt"
 # Create a shell script to run the Python script with sudo
 cat <<EOF > /usr/local/bin/neop
 #!/bin/bash
-python3 $TARGET_DIR/password_manager.py "\$@"
+sudo python3 $TARGET_DIR/password_manager.py "\$@"
 EOF
 
 # Ensure the shell script is executable
