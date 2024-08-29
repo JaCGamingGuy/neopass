@@ -10,6 +10,7 @@ from cryptography.fernet import Fernet
 import threading
 import time
 import sys
+import subprocess
 
 # Initialize the rich console
 console = Console()
@@ -19,7 +20,7 @@ SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 CREDENTIALS_FILE = os.path.join(SCRIPT_DIR, 'credentials.json')
 KEY_FILE = os.path.join(SCRIPT_DIR, 'key.key')
 PROGRAM_PASSWORD_FILE = os.path.join(SCRIPT_DIR, 'program_password.txt')
-INFO_FILE = os.path.join(SCRIPT_DIR, 'info.json')  # New info file
+INFO_FILE = os.path.join(SCRIPT_DIR, 'info.json')
 
 # Function to clear the console
 def clear_screen():
@@ -164,12 +165,13 @@ def password_manager_menu():
         console.print("[2] List Passwords")
         console.print("[3] Delete Credential")
         console.print("[4] Delete All Credentials")
-        console.print("[5] Info")
-        console.print("[6] Exit")
+        console.print("[5] Update")
+        console.print("[6] Info")
+        console.print("[7] Exit")
         
         console.print("\n---------------------------------------------\n", style="dim")
 
-        option = Prompt.ask("Select an option", choices=['1', '2', '3', '4', '5', '6'])
+        option = Prompt.ask("Select an option", choices=['1', '2', '3', '4', '5', '6', '7'])
 
         if option == '1':
             console.print("\n---------------------------------------------\n", style="dim")
@@ -206,11 +208,11 @@ def password_manager_menu():
                     continue
                 indices = [int(idx) for idx in indices_to_delete.split(',') if idx.isdigit()]
                 # Rebuild the credentials list excluding the selected indices
-                credentials = [cred for idx, cred in enumerate(sorted_credentials, start=1) if idx not in indices]
+                credentials = [cred for idx, cred in enumerate(sorted_credentials) if idx + 1 not in indices]
                 save_credentials(credentials, key)
-                console.print("[bold red]Selected credentials deleted.[/bold red]")
+                console.print("Selected credentials deleted.")
             else:
-                console.print("[bold red]No credentials available to delete.[/bold red]")
+                console.print("[bold red]No credentials found.[/bold red]")
             Prompt.ask("\nPress Enter to continue...")
 
         elif option == '4':
@@ -218,21 +220,26 @@ def password_manager_menu():
                 console.print("[bold red]Invalid program password. Exiting...[/bold red]")
                 continue
             clear_screen()
-            if cancel_input("\nType 'DELETE' to confirm deletion") == 'DELETE':
-                if cancel_input("Type 'CONFIRM' to permanently delete all credentials") == 'CONFIRM':
-                    credentials.clear()
-                    save_credentials(credentials, key)  # Save the cleared credentials
-                    console.print("[bold red]All credentials deleted.[/bold red]")
+            if Prompt.ask("'CANCEL' or confirm the deletion by typing 'CONFIRM'").strip().upper() == 'CONFIRM':
+                credentials.clear()
+                save_credentials(credentials, key)
+                console.print("All credentials deleted.")
             Prompt.ask("\nPress Enter to continue...")
 
-        elif option == '5':
+        elif option == '5':  # Update Manager
             clear_screen()
-            display_info()  # Display program info
+            subprocess.run(['python3', 'updater.py'])
             Prompt.ask("\nPress Enter to continue...")
 
-        elif option == '6':
+        elif option == '6':  # Info
+            clear_screen()
+            display_info()
+            Prompt.ask("\nPress Enter to continue...")
+
+        elif option == '7':  # Exit
             clear_screen()  # Clear the screen before exiting
-            break
+            sys.exit()
 
 if __name__ == "__main__":
     password_manager_menu()
+    
