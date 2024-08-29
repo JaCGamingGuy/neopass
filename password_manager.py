@@ -227,9 +227,13 @@ def password_manager_menu():
             Prompt.ask("\nPress Enter to continue...")
 
         elif option == '5':  # Update Manager
-            clear_screen()
-            subprocess.run(['python3', 'updater.py'])
-            Prompt.ask("\nPress Enter to continue...")
+    clear_screen()
+    updater_script_path = os.path.join(SCRIPT_DIR, 'updater.py')
+    if os.path.exists(updater_script_path):
+        subprocess.run(['python3', updater_script_path])
+    else:
+        console.print("[bold red]Updater script not found![/bold red]")
+    Prompt.ask("\nPress Enter to continue...")
 
         elif option == '6':  # Info
             clear_screen()
