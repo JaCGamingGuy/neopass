@@ -8,7 +8,7 @@ from io import BytesIO
 from getpass import getpass
 from cryptography.fernet import Fernet
 
-# Define the paths
+# Paths
 script_dir = os.path.dirname(os.path.abspath(__file__))
 repo_path = '/usr/local/bin/neopass'
 update_dir = os.path.join(script_dir, 'neopass_update')
