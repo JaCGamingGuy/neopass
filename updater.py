@@ -8,7 +8,7 @@ from io import BytesIO
 from getpass import getpass
 from cryptography.fernet import Fernet
 
-# Paths
+# Define the paths
 script_dir = os.path.dirname(os.path.abspath(__file__))
 repo_path = '/usr/local/bin/neopass'
 update_dir = os.path.join(script_dir, 'neopass_update')
@@ -87,26 +87,24 @@ def download_and_replace_repo():
         response = requests.get(github_repo_url, auth=(username, token))
         response.raise_for_status()  # Raises HTTPError for bad responses
         if response.status_code == 200:
+            # Create/update the update directory
+            if not os.path.exists(update_dir):
+                os.makedirs(update_dir)
+
             with ZipFile(BytesIO(response.content)) as zip_file:
                 zip_file.extractall(update_dir)
 
+            # Determine the extracted repo path
             extracted_repo_path = os.path.join(update_dir, 'neopass-main')
 
             if not os.path.exists(extracted_repo_path):
                 print(f"Extracted repository path {extracted_repo_path} does not exist.")
                 return
 
-            for item in os.listdir(extracted_repo_path):
-                s = os.path.join(extracted_repo_path, item)
-                d = os.path.join(repo_path, item)
-                if os.path.isdir(s):
-                    if os.path.exists(d):
-                        shutil.rmtree(d)
-                    shutil.copytree(s, d)
-                else:
-                    if os.path.exists(d):
-                        os.remove(d)
-                    shutil.copy2(s, d)
+            # Remove old repo and replace with new
+            if os.path.exists(repo_path):
+                shutil.rmtree(repo_path)
+            shutil.copytree(extracted_repo_path, repo_path)
 
             print("Repository updated successfully.")
         else:
