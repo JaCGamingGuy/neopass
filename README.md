@@ -7,6 +7,14 @@
 
 -NeoPass uses AES-128-CBC for encryption and HMAC-SHA256 for authentication.
 
+## What's New
+
+**Updater**
+
+There's now a 7th menu option, Update. Using your GitHub username and token, you can update NeoPass with ease.
+
+(no image yet)
+
 ## Preview
 
 **Main Menu**
