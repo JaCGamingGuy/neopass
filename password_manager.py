@@ -156,7 +156,7 @@ def password_manager_menu():
         clear_screen()
         console.print("    *********************************************", style="bold cyan")
         console.print("    *                                           *", style="bold cyan")
-        console.print("    *            Neo Password Manager           *", style="bold cyan")
+        console.print("    *           Neo's Password Manager          *", style="bold cyan")
         console.print("    *                                           *", style="bold cyan")
         console.print("    *********************************************", style="bold cyan")
         console.print("\n---------------------------------------------\n", style="dim")
