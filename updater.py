@@ -101,10 +101,26 @@ def download_and_replace_repo():
                 print(f"Extracted repository path {extracted_repo_path} does not exist.")
                 return
 
-            # Remove old repo and replace with new
-            if os.path.exists(repo_path):
-                shutil.rmtree(repo_path)
-            shutil.copytree(extracted_repo_path, repo_path)
+            # List of files/directories to exclude from deletion
+            exclude_items = {credentials_file, key_file}
+            
+            # Replace files and directories
+            for item in os.listdir(extracted_repo_path):
+                s = os.path.join(extracted_repo_path, item)
+                d = os.path.join(repo_path, item)
+                
+                # Skip excluded items
+                if os.path.basename(d) in exclude_items:
+                    continue
+
+                if os.path.isdir(s):
+                    if os.path.exists(d):
+                        shutil.rmtree(d)
+                    shutil.copytree(s, d)
+                else:
+                    if os.path.exists(d):
+                        os.remove(d)
+                    shutil.copy2(s, d)
 
             print("Repository updated successfully.")
         else:
