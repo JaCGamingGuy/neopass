@@ -1,5 +1,5 @@
 # Neo Password Manager
-(only for Debian based systems)
+(only tested on Debian based system)
 
 -A simple to use CLI based password generator and manager.
 
