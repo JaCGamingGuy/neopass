@@ -15,7 +15,7 @@ There's now a 7th menu option, Update. Using your GitHub username and token, you
 
 (no image yet)
 
-## Preview
+## Screenshots
 
 **Main Menu**
 
