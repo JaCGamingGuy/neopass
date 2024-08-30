@@ -107,7 +107,7 @@ def display_passwords(credentials):
 # Function to load and display program info
 def display_info():
     if os.path.exists(INFO_FILE):
-        with open(INFO_FILE, 'r') as file:
+        with open(INFO_FILE, 'r') as file):
             info = json.load(file)
         console.print("[bold cyan]Program Information:[/bold cyan]")
         console.print("\n---------------------------------------------\n", style="dim")
@@ -122,11 +122,11 @@ def cancel_input(prompt_text):
     def get_input():
         nonlocal input_str
         input_str = input(f"\n{prompt_text} (Type 'CANCEL' to cancel): ")
-    
+
     input_str = None
     input_thread = threading.Thread(target=get_input)
     input_thread.start()
-    
+
     while input_thread.is_alive():
         time.sleep(0.1)
         if input_str == 'CANCEL':
@@ -168,10 +168,10 @@ def password_manager_menu():
         console.print("[5] Update")
         console.print("[6] Info")
         console.print("[7] Exit")
-        
+
         console.print("\n---------------------------------------------\n", style="dim")
 
-        option = Prompt.ask("Select an option", choices=['1', '2', '3', '4', '5', '6', '7'])
+        option = Prompt.ask("Select an option", choices=['1', '2', '3', '4', '5', '6', '7', 'exit'])
 
         if option == '1':
             console.print("\n---------------------------------------------\n", style="dim")
@@ -240,9 +240,9 @@ def password_manager_menu():
             display_info()
             Prompt.ask("\nPress Enter to continue...")
 
-        elif option == '7':
-            clear_screen()  # Clear the screen before exiting
+        elif option in ['7', 'exit']:  # Exit
             break
 
-if __name__ == "__main__":
+# Function to call the menu
+if __name__ == '__main__':
     password_manager_menu()
