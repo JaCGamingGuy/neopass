@@ -240,11 +240,10 @@ def password_manager_menu():
             display_info()
             Prompt.ask("\nPress Enter to continue...")
 
-        elif option in ['7', 'exit']:
+        elif option == '7, exit':
             clear_screen()  # Clear the screen before exiting
             console.print("[bold cyan]Exiting Password Manager...[/bold cyan]")
             break
-
 
 if __name__ == "__main__":
     password_manager_menu()
