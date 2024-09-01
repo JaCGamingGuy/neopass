@@ -165,13 +165,14 @@ def password_manager_menu():
         console.print("[2] List Passwords")
         console.print("[3] Delete Credential")
         console.print("[4] Delete All Credentials")
-        console.print("[5] Update")
-        console.print("[6] Info")
-        console.print("[7] Exit")
+        console.print("[5] Backup")
+        console.print("[6] Update")
+        console.print("[7] Info")
+        console.print("[8] Exit")
         
         console.print("\n---------------------------------------------\n", style="dim")
 
-        option = Prompt.ask("Select an option", choices=['1', '2', '3', '4', '5', '6', '7'])
+        option = Prompt.ask("Select an option", choices=['1', '2', '3', '4', '5', '6', '7', '8'])
 
         if option == '1':
             console.print("\n---------------------------------------------\n", style="dim")
@@ -226,24 +227,32 @@ def password_manager_menu():
                 console.print("All credentials deleted.")
             Prompt.ask("\nPress Enter to continue...")
 
-        elif option == '5':  # Update Manager
+        elif option == '5':  # Backup
             clear_screen()
-            updater_script_path = os.path.join(SCRIPT_DIR, 'updater.py')
-            if os.path.exists(updater_script_path):
-                subprocess.run(['python3', updater_script_path])
+            backup_script_path = os.path.join(SCRIPT_DIR, 'backup.py')
+            if os.path.exists(backup_script_path):
+                subprocess.run(['python3', backup_script_path])
             else:
-                console.print("[bold red]Updater script not found![/bold red]")
+                console.print("[bold red]Backup script not found![/bold red]")
             Prompt.ask("\nPress Enter to continue...")
 
-        elif option == '6':  # Info
-            clear_screen()
+        elif option == '6':  # Update
+            update_script_path = os.path.join(SCRIPT_DIR, 'update_manager.py')
+            if os.path.exists(update_script_path):
+                subprocess.run(['python3', update_script_path])
+            else:
+                console.print("[bold red]Update manager script not found![/bold red]")
+            Prompt.ask("\nPress Enter to continue...")
+
+        elif option == '7':  # Info
             display_info()
             Prompt.ask("\nPress Enter to continue...")
 
-        elif option == '7':
-            clear_screen()  # Clear the screen before exiting
-            console.print("[bold cyan]Exiting Password Manager...[/bold cyan]")
-            break
+        elif option == '8':  # Exit
+            clear_screen()
+            console.print("[bold cyan]Exiting Neo's Password Manager...[/bold cyan]")
+            time.sleep(1)
+            sys.exit(0)
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     password_manager_menu()
