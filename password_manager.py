@@ -237,7 +237,7 @@ def password_manager_menu():
             Prompt.ask("\nPress Enter to continue...")
 
         elif option == '6':  # Update
-            update_script_path = os.path.join(SCRIPT_DIR, 'update_manager.py')
+            update_script_path = os.path.join(SCRIPT_DIR, 'updater.py')
             if os.path.exists(update_script_path):
                 subprocess.run(['python3', update_script_path])
             else:
