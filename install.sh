@@ -13,7 +13,7 @@ TARGET_DIR="/usr/local/bin/neopass"
 mkdir -p "$TARGET_DIR"
 
 # Move the files into the target directory
-cp password_manager.py requirements.txt info.json updater.py "$TARGET_DIR"
+cp password_manager.py requirements.txt info.json backup.py updater.py "$TARGET_DIR"
 
 # Install required Python packages
 pip3 install -r "$TARGET_DIR/requirements.txt"
