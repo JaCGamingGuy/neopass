@@ -48,7 +48,9 @@ Plug in your external backup of choice, select backup, choose your drive, done.
         sudo chmod +x install.sh
         sudo bash ./install.sh
         neop
-    
+
+![Screenshot 2024-09-04 115248](https://github.com/user-attachments/assets/7ed89af6-65b9-4388-b45e-cc502b5f76fe)
+
 1.  **Clone the Repository**
 
         git clone https://github.com/JaCGamingGuy/neopass.git
@@ -59,7 +61,7 @@ Plug in your external backup of choice, select backup, choose your drive, done.
 
 3.  **Make the Installation Script Executable**
 
-        chmod +x install.sh
+        sudo chmod +x install.sh
 
 4.  **Run the Installation Script**
 
