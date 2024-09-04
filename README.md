@@ -45,7 +45,7 @@ Plug in your external backup of choice, select backup, choose your drive, done.
 
         git clone https://github.com/JaCGamingGuy/neopass.git
         cd neopass
-        chmod +x install.sh
+        sudo chmod +x install.sh
         sudo bash ./install.sh
         neop
     
@@ -72,7 +72,7 @@ Plug in your external backup of choice, select backup, choose your drive, done.
 ## Uninstall Instructions
 
         cd /usr/local/bin/
-        rm -R neopass
-        rm neop
+        sudo rm -R neopass
+        sudo rm neop
 
 ***Enjoy***
