@@ -9,9 +9,9 @@
 
 ## What's New
 
-**Updater**
+**Backup**
 
-There's now a 7th menu option, Update. Using your GitHub username and token, you can update NeoPass with ease.
+Plug in your external backup of choice, select backup, choose your drive, done.
 
 ![Screenshot 2024-09-04 113011](https://github.com/user-attachments/assets/580afab4-6362-43c0-bd89-b8aab24991bc)
 
