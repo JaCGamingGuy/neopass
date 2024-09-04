@@ -13,7 +13,8 @@
 
 There's now a 7th menu option, Update. Using your GitHub username and token, you can update NeoPass with ease.
 
-(no image yet)
+![Screenshot 2024-09-04 113011](https://github.com/user-attachments/assets/70b72fea-7f0b-4686-8ec3-ea73d917c8f0)
+
 
 ## Screenshots
 
