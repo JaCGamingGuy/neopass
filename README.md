@@ -20,23 +20,23 @@ Plug in your external backup of choice, select backup, choose your drive, done.
 
 **Main Menu**
 
-![main_2_optimized](https://github.com/user-attachments/assets/b352a37d-f21b-4a3b-8638-7fabc4350fa4)
+![Screenshot 2024-09-04 114535](https://github.com/user-attachments/assets/f5951125-6030-421a-aa16-afcd653d6d04)
 
 **Generation**
 
-![option1_optimized](https://github.com/user-attachments/assets/c285e1c6-b5e7-4a0c-a048-f37201697846)
+![Screenshot 2024-09-04 114421](https://github.com/user-attachments/assets/8af2b49d-b637-456d-b153-4069b80ef2f9)
 
 **List**
 
-![option2_optimized](https://github.com/user-attachments/assets/f5d4690c-5522-4d33-aff1-33675d430cef)
+![Screenshot 2024-09-04 114225](https://github.com/user-attachments/assets/14145403-0052-4d4b-8edf-7b6aa43d65ac)
 
 **Removal**
 
-![option3_optimized](https://github.com/user-attachments/assets/6cbcbd7e-d809-4dc1-8e1f-ee8ad8e9fc10)
+![Screenshot 2024-09-04 114759](https://github.com/user-attachments/assets/6d865111-6a5e-4f6a-bb15-5ebac77a8112)
 
 **Bulk-Removal**
 
-![option4_optimized](https://github.com/user-attachments/assets/19fe35da-89a2-4f79-abb4-300d4e6d0f93)
+![Screenshot 2024-09-04 114856](https://github.com/user-attachments/assets/df070d63-bb8b-4985-95ef-42add4473b69)
 
 
 ## Installation Instructions
